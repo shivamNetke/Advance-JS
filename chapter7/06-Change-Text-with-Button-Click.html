@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DOM Example</title>
+</head>
+<body>
+
+  <h2 id="title">Hello Shivam!</h2>
+  <button onclick="changeText()">Change Text</button>
+  <button onclick="changeBackground()">Change Background</button>
+
+  <script>
+    function changeText() {
+      let heading = document.getElementById("title");
+      heading.innerText = "You just changed me!";
+      heading.style.color = "green";
+    }
+
+    function changeBackground() {
+      document.body.style.backgroundColor = "lightblue";
+    }
+  </script>
+
+</body>
+</html>

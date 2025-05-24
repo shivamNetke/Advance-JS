@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Event Listener</title>
+</head>
+<body>
+
+  <h2 id="title">Event Example</h2>
+  <button id="textBtn">Change Text</button>
+  <button id="bgBtn">Change Background</button>
+
+  <script>
+    let heading = document.getElementById("title");
+    let textBtn = document.getElementById("textBtn");
+    let bgBtn = document.getElementById("bgBtn");
+
+    textBtn.addEventListener("click", function() {
+      heading.innerText = "Changed using addEventListener!";
+      heading.style.color = "blue";
+    });
+
+    bgBtn.addEventListener("click", function() {
+      document.body.style.backgroundColor = "lightgreen";
+    });
+  </script>
+
+</body>
+</html>

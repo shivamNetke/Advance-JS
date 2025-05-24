@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form and Image Toggle</title>
+</head>
+<body>
+
+  <h2>User Form</h2>
+  <form id="userForm">
+    Name: <input type="text" id="name" required><br><br>
+    Email: <input type="email" id="email" required><br><br>
+    <button type="submit">Submit</button>
+  </form>
+
+  <div id="result"></div>
+
+  <hr>
+
+  <h2>Toggle Image</h2>
+  <button onclick="toggleImage()">Show/Hide Image</button><br><br>
+  <img id="myImage" src="https://cdn-icons-png.freepik.com/256/4556/4556980.png?ga=GA1.1.74519957.1732719458&semt=ais_hybrid" alt="Sample Image" style="display: block;">
+
+  <script>
+    // Form handling
+    document.getElementById("userForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      let name = document.getElementById("name").value;
+      let email = document.getElementById("email").value;
+
+      let result = document.getElementById("result");
+      result.innerHTML = `<p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p>`;
+    });
+
+    // Image toggle
+    function toggleImage() {
+      let img = document.getElementById("myImage");
+      if (img.style.display === "none") {
+        img.style.display = "block";
+      } else {
+        img.style.display = "none";
+      }
+    }
+  </script>
+
+</body>
+</html>
