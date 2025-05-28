@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Change Background Color</title>
-</head>
-<body id="myBody">
+  <head>
+    <title>Change Background Color</title>
+  </head>
+  <body id="myBody">
+    <h2>Click to Change Background</h2>
+    <button onclick="changeColor()">Change Color</button>
 
-<h2>Click to Change Background</h2>
-<button onclick="changeColor()">Change Color</button>
-
-<script>
-  function changeColor() {
-    const colors = ["lightblue", "lightgreen", "lavender", "lightpink", "white", "yellow"];
-    const randomIndex = Math.floor(Math.random() * colors.length);
-    document.getElementById("myBody").style.backgroundColor = colors[randomIndex];
-  }
-</script>
-
-</body>
+    <script>
+      function changeColor() {
+        const colors = [
+          "lightblue",
+          "lightgreen",
+          "lavender",
+          "lightpink",
+          "white",
+          "yellow",
+        ];
+        const randomIndex = Math.floor(Math.random() * colors.length);
+        document.getElementById("myBody").style.backgroundColor =
+          colors[randomIndex];
+      }
+    </script>
+  </body>
 </html>

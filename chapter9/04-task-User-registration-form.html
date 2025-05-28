@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Registration</title>
+    <style>
+        /*
+      #display {
+        margin-top: 20px;
+        font-family: Arial, sans-serif;
+      }
+      #display p {
+        margin: 5px 0;
+      }
+        */
+    </style>
+  </head>
+  <body>
+    <form id="regForm">
+      <input type="text" id="name" placeholder="Enter name" />
+      <input type="email" id="email" placeholder="Enter email" />
+      <button type="submit">Submit</button>
+    </form>
+
+    <div id="display"></div>
+
+    <script>
+      const form = document.getElementById("regForm");
+      const display = document.getElementById("display");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+
+        if (name === "") {
+          alert("Name cannot be empty!");
+          return;
+        }
+
+        if (email === "") {
+          alert("Email cannot be empty!");
+          return;
+        }
+
+        // Basic email format validation
+        if (!validateEmail(email)) {
+          alert("Please enter a valid email!");
+          return;
+        }
+
+        // Save to localStorage
+        localStorage.setItem("name", name);
+        localStorage.setItem("email", email);
+
+        // Display saved data
+        display.innerHTML = `
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+        `;
+
+        // Optionally clear the form
+        form.reset();
+      });
+
+      // Email validation function
+      function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email.toLowerCase());
+      }
+
+      // Display saved data on page load (if any)
+      window.onload = function () {
+        const savedName = localStorage.getItem("name");
+        const savedEmail = localStorage.getItem("email");
+        if (savedName && savedEmail) {
+          display.innerHTML = `
+            <p><strong>Name:</strong> ${savedName}</p>
+            <p><strong>Email:</strong> ${savedEmail}</p>
+          `;
+        }
+      };
+    </script>
+  </body>
+</html>

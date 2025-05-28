@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<script>
-let isBlack = true;
+  </head>
+  <script>
+    let isBlack = true;
 
-function toggleImage() {
-  const image = document.getElementById("myImage");
-  if (isBlack) {
-    image.src = "https://via.placeholder.com/150/ffffff";
-  } else {
-    image.src = "https://via.placeholder.com/150/000000";
-  }
-  isBlack = !isBlack;
-}
-
-</script>
-<body>
-<img id="myImage" src="https://via.placeholder.com/150/000000" width="150">
-<br><br>
-<button onclick="toggleImage()">Toggle Image</button>
-
-</body>
+    function toggleImage() {
+      const image = document.getElementById("myImage");
+      if (isBlack) {
+        image.src = "https://via.placeholder.com/150/ffffff";
+      } else {
+        image.src = "https://via.placeholder.com/150/000000";
+      }
+      isBlack = !isBlack;
+    }
+  </script>
+  <body>
+    <img
+      id="myImage"
+      src="https://via.placeholder.com/150/000000"
+      width="150"
+    />
+    <br /><br />
+    <button onclick="toggleImage()">Toggle Image</button>
+  </body>
 </html>

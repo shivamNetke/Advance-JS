@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Simple Registration</title>
+</head>
+<body>
+  <form id="form">
+    <input id="name" placeholder="Name" />
+    <input id="email" placeholder="Email" type="email" />
+    <button type="submit">Submit</button>
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    const form = document.getElementById("form");
+    const result = document.getElementById("result");
+
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      if (!name || !email) return alert("Please enter name and email");
+
+      localStorage.setItem("name", name);
+      localStorage.setItem("email", email);
+
+      result.textContent = `Name: ${name}, Email: ${email}`;
+      form.reset();
+    });
+
+    // Show saved data on page load
+    window.onload = () => {
+      const name = localStorage.getItem("name");
+      const email = localStorage.getItem("email");
+      if (name && email) {
+        result.textContent = `Name: ${name}, Email: ${email}`;
+      }
+    };
+  </script>
+</body>
+</html>
